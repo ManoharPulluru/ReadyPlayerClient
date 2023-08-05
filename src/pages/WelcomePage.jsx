@@ -1,4 +1,4 @@
-import "../styles.css";
+import "../styles/styles.css";
 
 import { AvatarCreatorViewer } from "@readyplayerme/rpm-react-sdk";
 import { useState } from "react";
@@ -34,7 +34,7 @@ export default function WelcomePage() {
     <div className="App">
       <div className="container">
         <AvatarCreatorViewer
-          subdomain="demo"
+          subdomain="https://studio.readyplayer.me/applications/64ce0d3b458008a39a6b7876"
           onAvatarExported={handleAvatarExported}
           onUserSet={handleUserSet}
           editorConfig={{
@@ -50,10 +50,10 @@ export default function WelcomePage() {
           loadingNode={loadingNode}
         />
       </div>
-      <div>
+      <div style={{display:'none'}}>
         <b>Avatar URL:</b> {`${url}`}
       </div>
-      <div>
+      <div style={{display:'none'}}>
         <b>User ID:</b> {`${id}`}
       </div>
     </div>
