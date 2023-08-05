@@ -1,0 +1,54 @@
+.login-main {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(#20576D,#15192A);
+}
+
+.login-right {
+    width: 50%;
+    height: 100%;
+    background-image: url('https://assets-global.website-files.com/647798cf71ec2048ea89ab07/6478ebf6b43f0f9715726042_avatars-create.png');
+}
+.login-left {
+    padding: 0px 40px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.login-logo {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.login-card-div {
+    width: 100%;
+    flex-grow: 1;
+    padding: 50px;
+}
+.title-login {
+    font-size: 32px;
+    margin: 0px 0px 40px 0px;
+}
+Form {
+    background-color: #121E27;
+    border-radius: 10px;
+    padding: 40px;
+    background-color: none;
+}
+Form:hover {
+    box-shadow: 0 0 10px white;
+}
+.text-muted , Form {
+    color: white !important;
+}
+
+.login-btns-grp {
+    display: flex;
+    justify-content: space-between;
+}
