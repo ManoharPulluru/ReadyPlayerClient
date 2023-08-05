@@ -34,7 +34,7 @@ export default function WelcomePage() {
     <div className="App">
       <div className="container">
         <AvatarCreatorViewer
-          subdomain="https://studio.readyplayer.me/applications/64ce0d3b458008a39a6b7876"
+          subdomain="demo"
           onAvatarExported={handleAvatarExported}
           onUserSet={handleUserSet}
           editorConfig={{
