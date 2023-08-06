@@ -14,7 +14,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('https://ready-player-manohar-server.onrender.com/user/signup', {
+      const response = await axios.post('http://localhost:3001/user/signup', {
         username,
         email,
         password,

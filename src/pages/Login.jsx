@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/login.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,25 +10,31 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const loginButtonRef = useRef(null);
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('https://ready-player-manohar-server.onrender.com/user/login', {
+      setLoading(true);
+      setMessage('');
+
+      const response = await axios.post('http://localhost:3001/user/login', {
         email,
         password,
       });
 
       const data = response.data;
       setMessage(data.message);
+
       if (data.success) {
-        localStorage.setItem('token', data.token); // Store the token in local storage
-        navigate('/welcome'); // Redirect to the welcome page or any other protected route
-      } else {
-        alert(data.message);
+        localStorage.setItem('token', data.token);
+        navigate('/welcome');
       }
     } catch (error) {
       console.error('Error during login:', error);
       setMessage('Something went wrong during login.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,8 +70,13 @@ const Login = () => {
                 />
               </Form.Group>
               <div className='login-btns-grp'>
-                <Button onClick={handleLogin} variant="info">
-                  Login
+                <Button
+                  ref={loginButtonRef}
+                  variant="info"
+                  onClick={handleLogin}
+                  disabled={loading}
+                >
+                  {loading ? 'Logging in...' : 'Login'}
                 </Button>
                 <Button onClick={() => { navigate('/signup') }} variant="dark">
                   Sign up
