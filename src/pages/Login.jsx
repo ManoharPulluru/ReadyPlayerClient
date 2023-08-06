@@ -18,7 +18,7 @@ const Login = () => {
       setLoading(true);
       setMessage('');
 
-      const response = await axios.post('http://localhost:3001/user/login', {
+      const response = await axios.post('https://ready-player-manohar-server.onrender.com/user/login', {
         email,
         password,
       });
